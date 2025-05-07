@@ -13,17 +13,16 @@ namespace NGUInjector.AllocationProfiles.Breakpoints
 
         protected override bool PerformSwap(Breakpoint bp)
         {
-            var prio = bp.priorities.FirstOrDefault(x => x.IsValid());
-            if (prio != null)
+            var temp = bp.priorities.Where(x => x.IsValid()).ToList();
+            if (temp.Count == 0)
+                return false;
+            RemoveR3();
+            foreach (var prio in temp)
             {
-                RemoveR3();
-
                 prio.UpdateMaxAllocation();
                 prio.Allocate();
-
-                _character.hacksController.refreshMenu();
             }
-
+            _character.hacksController.refreshMenu();
             return false;
         }
 
