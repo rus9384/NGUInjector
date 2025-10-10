@@ -412,7 +412,7 @@ An R3 breakpoint is structured as follows:
 "R3": [
     {
         "Time": 0,
-        "Priorities": ["HACK-1"]
+        "Priorities": ["HACK-1:80","HACK-4"]
     }
 ]
 
@@ -420,7 +420,7 @@ An R3 breakpoint is structured as follows:
 
 Available priorities for R3 are as follows:
 
-- (CAP)HACK-X (0-14) - Allocate R3 to hacks. Will only ever allocate to the first hack in your priority list that hasn't met its target.
+- (CAP)HACK-X (0-14) - Allocate R3 to hacks. Will allocate to the hack in the order of your priority list that hasn't met its target.
 - (CAP)ALLHACK - Adds every hack from 0 to 14 as a priority. Prioritizes hacks with target > 0.
 
 ## Gear
