@@ -21,7 +21,7 @@ namespace NGUInjector.AllocationProfiles.Breakpoints
             {
                 Main.Log($"Equipping Diggers: {string.Join(", ", bp.priorities)}");
                 current = bp;
-                return true;
+                return false;
             }
             else
             {
